@@ -54,15 +54,16 @@ Vitest ejecuta las pruebas en Chromium headless de Playwright. Los umbrales son 
 
 ## Demostrar props y state desde F12
 
-Abrir `https://kevinvaldess.github.io/zona-bikers-react/?demoReact=1#/productos`,
-abrir F12 → Console y recargar. Filtrar por `React demo`.
+Abrir la web normalmente y entrar a F12 → Console. Filtrar por `React demo`.
+Los mensajes aparecen automáticamente al cargar el catálogo y al agregar, cambiar cantidades o eliminar productos.
+Si se abrió la consola después de cargar la página, recargar para ver también los mensajes iniciales.
 
 - `[PROPS] TarjetaProducto`: objeto `producto` recibido desde el catálogo.
 - `[STATE] Productos`: estados `productos`, `cargando` y `error` después de actualizarse.
 - `[STATE] CarritoProvider`: estado del carrito al agregar, cambiar cantidades o eliminar productos.
 
 Los mensajes muestran copias de los valores reales después del render. No se necesita una extensión.
-En desarrollo, StrictMode puede repetir los mensajes iniciales. Quitar `?demoReact=1` y recargar desactiva los mensajes.
+En desarrollo, StrictMode puede repetir los mensajes iniciales.
 
 ## Publicación en GitHub Pages
 
