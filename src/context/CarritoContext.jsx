@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { leerLista } from '../utils/almacenamiento';
 import { precioVigente } from '../utils/precios';
+import { registrarReact } from '../utils/demoReact';
 const CarritoContext = createContext(null);
 /** Recupera solo productos de estructura válida, sin cantidades negativas. */
 function leerCarrito() {
@@ -12,6 +13,9 @@ export function CarritoProvider({
 }) {
   const [carrito, setCarrito] = useState(leerCarrito);
   const [error, setError] = useState('');
+  useEffect(() => {
+    registrarReact('STATE', 'CarritoProvider', { carrito, error });
+  }, [carrito, error]);
   useEffect(() => {
     try {
       localStorage.setItem('carritoBikers', JSON.stringify(carrito));

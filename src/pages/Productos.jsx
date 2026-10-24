@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { useSearchParams } from 'react-router-dom';
 import { categorias } from '../utils/categorias';
 import { tieneOferta } from '../utils/precios';
+import { registrarReact } from '../utils/demoReact';
 
 /**
  * Página de catálogo: lista todos los productos de data/productos.json
@@ -33,6 +34,10 @@ function Productos({ soloOfertas = false }) {
       .catch(() => setError(true))
       .finally(() => setCargando(false));
   }, []);
+
+  useEffect(() => {
+    registrarReact('STATE', 'Productos', { productos, cargando, error });
+  }, [productos, cargando, error]);
 
   const visibles = productos.filter(p => (!soloOfertas || tieneOferta(p))
     && (!categoria || p.categoria === categoria)

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { registrarReact } from '../utils/demoReact';
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -22,6 +24,10 @@ import { precioVigente, tieneOferta } from '../utils/precios';
  */
 function TarjetaProducto({ producto }) {
   const { agregar, error } = useCarrito();
+
+  useEffect(() => {
+    registrarReact('PROPS', 'TarjetaProducto', { producto });
+  }, [producto]);
 
   return (
     <Card as="article" className="card-biker h-100">

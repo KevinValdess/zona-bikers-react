@@ -52,6 +52,19 @@ Vitest ejecuta las pruebas en Chromium headless de Playwright. Los umbrales son 
 - [Entrega](docs/ENTREGA.md).
 - Informe HTML local: `coverage/frontend/index.html`.
 
+## Demostrar props y state desde F12
+
+Abrir la web normalmente y entrar a F12 → Console. Filtrar por `React demo`.
+Los mensajes aparecen automáticamente al cargar el catálogo y al agregar, cambiar cantidades o eliminar productos.
+Si se abrió la consola después de cargar la página, recargar para ver también los mensajes iniciales.
+
+- `[PROPS] TarjetaProducto`: objeto `producto` recibido desde el catálogo.
+- `[STATE] Productos`: estados `productos`, `cargando` y `error` después de actualizarse.
+- `[STATE] CarritoProvider`: estado del carrito al agregar, cambiar cantidades o eliminar productos.
+
+Los mensajes muestran copias de los valores reales después del render. No se necesita una extensión.
+En desarrollo, StrictMode puede repetir los mensajes iniciales.
+
 ## Publicación en GitHub Pages
 
 En [Settings → Pages](https://github.com/KevinValdess/zona-bikers-react/settings/pages), seleccionar **GitHub Actions** como fuente. Después volver a ejecutar el flujo **Verificar y publicar** desde Actions.
